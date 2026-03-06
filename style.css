@@ -11,7 +11,7 @@ body {
 header {
     background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
     color: #fff;
-    padding: 2rem 1rem 1.2rem 1rem;
+    padding: 0.6rem 1rem 0.3rem 1rem;
     text-align: center;
     box-shadow: 0 4px 24px rgba(238,9,121,0.12);
     position: sticky;
@@ -20,12 +20,12 @@ header {
 }
 
 #search {
-    margin-top: 1.2rem;
-    padding: 0.7rem 1.2rem;
-    width: 270px;
-    border-radius: 30px;
+    margin-top: 0.3rem;
+    padding: 0.4rem 1rem;
+    width: 210px;
+    border-radius: 20px;
     border: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     box-shadow: 0 2px 8px rgba(127,83,172,0.10);
     outline: none;
     transition: box-shadow 0.2s;

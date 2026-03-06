@@ -4,21 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Science Lab — Unblocked Games</title>
+    <link rel="icon" type="image/png" href="assets/Logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>⚗️ Science Lab — Unblocked Games</h1>
-        <input type="text" id="search" placeholder="Search games...">
-    </header>
+        <header style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.3rem;">
+            <div style="display:flex;align-items:center;gap:1rem;justify-content:center;">
+                <img src="assets/Logo.png" alt="Science Lab Logo" style="height:48px;width:48px;border-radius:12px;background:#fff;box-shadow:0 2px 8px #0001;object-fit:cover;" />
+                <h1 style="margin:0;">Science Lab — Unblocked Games</h1>
+            </div>
+            <input type="text" id="search" placeholder="Search games..." style="margin-top:0.2rem;" />
+        </header>
     <main id="games-container"></main>
     <div id="game-modal" class="modal">
         <div class="modal-content">
             <span class="close" id="close-modal">&times;</span>
+            <button id="fullscreen-btn" style="position:absolute;top:10px;left:20px;font-size:1.3rem;padding:0.2rem 0.8rem;border-radius:7px;border:none;background:#ffd700;color:#23234a;cursor:pointer;font-weight:600;z-index:10;">⛶ Fullscreen</button>
             <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
-    <script src="games.js"></script>
-    <script src="main.js"></script>
+        <script src="games.js"></script>
+        <script src="main.js"></script>
+        <footer id="third-party-note" style="position:fixed;bottom:36px;left:0;width:100%;background:rgba(34,34,59,0.97);color:#fff;text-align:center;padding:0.7rem 0;font-size:0.97rem;z-index:2000;letter-spacing:0.1px;display:flex;justify-content:center;align-items:center;gap:1.2rem;">
+            <span>Note: When playing, third-party game sites may store data or use cookies. Science Lab does not control or store this data.</span>
+            <button onclick="document.getElementById('third-party-note').style.display='none'" style="background:#ffd700;color:#23234a;border:none;border-radius:6px;padding:0.3rem 1.1rem;font-size:1rem;cursor:pointer;font-weight:600;">OK</button>
+        </footer>
+        <div style="width:100%;background:#23234a;color:#ffd700;text-align:center;padding:0.7rem 0 0.6rem 0;font-size:0.97rem;letter-spacing:0.1px;margin-top:2.5rem;">
+            <a href="#about" style="color:#ffd700;text-decoration:underline;margin:0 1.2rem;">About</a>
+            <a href="#terms" style="color:#ffd700;text-decoration:underline;margin:0 1.2rem;">Terms &amp; Conditions</a>
+            <a href="#privacy" style="color:#ffd700;text-decoration:underline;margin:0 1.2rem;">Privacy Policy</a>
+        </div>
+
+        <!-- About Modal (hidden by default) -->
+        <div id="about-modal" style="display:none;position:fixed;z-index:3000;left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,59,0.93);color:#fff;justify-content:center;align-items:center;">
+            <div style="background:#23234a;padding:2rem 1.5rem;border-radius:12px;max-width:600px;width:90vw;max-height:80vh;overflow:auto;position:relative;">
+                <span onclick="document.getElementById('about-modal').style.display='none'" style="position:absolute;top:10px;right:20px;font-size:2rem;cursor:pointer;">&times;</span>
+                <h2>About Science Lab</h2>
+                <p>Science Lab is a collection of fun and educational games, curated for easy access and play. All games are hosted by third-party providers. This site does not own or control the games, and is intended for entertainment and learning purposes only.</p>
+            </div>
+        </div>
+
+        <!-- Terms and Privacy Modal (hidden by default, simple inline for MVP) -->
+        <div id="terms-modal" style="display:none;position:fixed;z-index:3000;left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,59,0.93);color:#fff;justify-content:center;align-items:center;">
+            <div style="background:#23234a;padding:2rem 1.5rem;border-radius:12px;max-width:600px;width:90vw;max-height:80vh;overflow:auto;position:relative;">
+                <span onclick="document.getElementById('terms-modal').style.display='none'" style="position:absolute;top:10px;right:20px;font-size:2rem;cursor:pointer;">&times;</span>
+                <h2>Terms &amp; Conditions</h2>
+                <p>This website provides links to third-party games hosted on external sites. By using this site, you agree that Science Lab is not responsible for the content, data collection, or privacy practices of these third-party sites. Use at your own discretion.</p>
+            </div>
+        </div>
+        <div id="privacy-modal" style="display:none;position:fixed;z-index:3000;left:0;top:0;width:100vw;height:100vh;background:rgba(34,34,59,0.93);color:#fff;justify-content:center;align-items:center;">
+            <div style="background:#23234a;padding:2rem 1.5rem;border-radius:12px;max-width:600px;width:90vw;max-height:80vh;overflow:auto;position:relative;">
+                <span onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute;top:10px;right:20px;font-size:2rem;cursor:pointer;">&times;</span>
+                <h2>Privacy Policy</h2>
+                <p>Science Lab does not collect or store any personal data. However, third-party game sites may collect data or use cookies according to their own privacy policies. Please review the privacy policy of each game provider for more information.</p>
+            </div>
+        </div>
+        <script>
+            document.querySelector('a[href="#about"]').onclick = function(e) {
+                e.preventDefault();
+                document.getElementById('about-modal').style.display = 'flex';
+            };
+            document.querySelector('a[href="#terms"]').onclick = function(e) {
+                e.preventDefault();
+                document.getElementById('terms-modal').style.display = 'flex';
+            };
+            document.querySelector('a[href="#privacy"]').onclick = function(e) {
+                e.preventDefault();
+                document.getElementById('privacy-modal').style.display = 'flex';
+            };
+        </script>
 </body>
 </html>

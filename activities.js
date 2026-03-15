@@ -116,4 +116,22 @@ window.ACTIVITIES = [
 				description: "Battle as a ragdoll archer and defeat your opponents!<br><b>Controls:</b> Mouse or touch.",
 				featured: true
 			}
+			,{
+				id: "steal-brainrot-heist",
+				title: "Steal Brainrot Heist",
+				category: "Action",
+				thumbnail: "assets/steal_brainrot_heist.png",
+				url: "https://db2.duckmath.org/2026/unity/steal-brainrot-heist/pre.html",
+				description: "A Unity heist game. <br><b>Controls:</b> Mouse, keyboard. (Unity WebGL)",
+				featured: true
+			},
+			{
+				id: "real-flight-simulator",
+				title: "Real Flight Simulator",
+				category: "Simulation",
+				thumbnail: "assets/real_flight_simulator.png",
+				url: "https://db2.duckmath.org/2023/unity2/real-flight-simulator/pre.html",
+				description: "Fly realistic aircraft in this Unity WebGL flight simulator.<br><b>Controls:</b> Mouse, keyboard.",
+				featured: true
+			}
 		];

@@ -1,5 +1,6 @@
-// Fullscreen button logic
+// Fullscreen button logic and settings modal logic
 document.addEventListener('DOMContentLoaded', function() {
+  // Fullscreen
   const fsBtn = document.getElementById('fullscreen-btn');
   if (fsBtn) {
     fsBtn.onclick = function() {
@@ -14,6 +15,66 @@ document.addEventListener('DOMContentLoaded', function() {
         frame.msRequestFullscreen();
       }
     };
+  }
+
+  // Settings modal logic
+  const settingsBtn = document.getElementById('settings-btn');
+  const settingsModal = document.getElementById('settings-modal');
+  const closeSettingsModal = document.getElementById('close-settings-modal');
+  const saveSettingsBtn = document.getElementById('save-settings-btn');
+  const disableSoundCheckbox = document.getElementById('disable-sound-checkbox');
+  const themeSelect = document.getElementById('theme-select');
+
+  // Load settings from localStorage
+  function loadSettings() {
+    const soundDisabled = localStorage.getItem('disableSound') === 'true';
+    const theme = localStorage.getItem('theme') || 'default';
+    disableSoundCheckbox.checked = soundDisabled;
+    themeSelect.value = theme;
+    applyTheme(theme);
+  }
+
+  // Save settings to localStorage
+  function saveSettings() {
+    localStorage.setItem('disableSound', disableSoundCheckbox.checked);
+    localStorage.setItem('theme', themeSelect.value);
+    applyTheme(themeSelect.value);
+    settingsModal.style.display = 'none';
+  }
+
+  // Theme switching
+  function applyTheme(theme) {
+    document.body.classList.remove('theme-dark', 'theme-light');
+    if (theme === 'dark') {
+      document.body.classList.add('theme-dark');
+    } else if (theme === 'light') {
+      document.body.classList.add('theme-light');
+    }
+  }
+
+  if (settingsBtn && settingsModal && closeSettingsModal && saveSettingsBtn && disableSoundCheckbox && themeSelect) {
+    settingsBtn.onclick = () => {
+      settingsModal.style.display = 'block';
+      loadSettings();
+    };
+    closeSettingsModal.onclick = () => {
+      settingsModal.style.display = 'none';
+    };
+    saveSettingsBtn.onclick = saveSettings;
+    window.onclick = function(event) {
+      if (event.target === settingsModal) {
+        settingsModal.style.display = 'none';
+      }
+    };
+    loadSettings();
+  }
+
+  // Optionally, you can mute/unmute all audio elements if needed
+  if (disableSoundCheckbox) {
+    disableSoundCheckbox.addEventListener('change', function() {
+      const allAudio = document.querySelectorAll('audio, video');
+      allAudio.forEach(el => { el.muted = disableSoundCheckbox.checked; });
+    });
   }
 });
 // Entry point for the app

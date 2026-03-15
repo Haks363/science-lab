@@ -1,3 +1,72 @@
+/* Theme support */
+.theme-dark {
+    background: linear-gradient(135deg, #23234a 0%, #23234a 100%) !important;
+    color: #ffd700 !important;
+}
+.theme-dark header {
+    background: #23234a !important;
+    color: #ffd700 !important;
+}
+.theme-dark .activity-card {
+    background: #23234a !important;
+    color: #ffd700 !important;
+    box-shadow: 0 4px 24px rgba(34,34,74,0.18);
+}
+.theme-dark .modal-content {
+    background: #23234a !important;
+    color: #ffd700 !important;
+}
+
+.theme-light {
+    background: linear-gradient(135deg, #fffbe7 0%, #e0c3fc 100%) !important;
+    color: #23234a !important;
+}
+.theme-light header {
+    background: #fffbe7 !important;
+    color: #23234a !important;
+}
+.theme-light .activity-card {
+    background: #fff !important;
+    color: #23234a !important;
+    box-shadow: 0 4px 24px rgba(101,124,237,0.13);
+}
+.theme-light .modal-content {
+    background: #fffbe7 !important;
+    color: #23234a !important;
+}
+
+/* Settings modal improvements */
+#settings-modal.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(34,34,59,0.75);
+    align-items: center;
+    justify-content: center;
+}
+#settings-modal .modal-content {
+    background: #fffbe7;
+    color: #23234a;
+    margin: 5% auto;
+    padding: 2rem 2.2rem 1.5rem 2.2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(34,34,74,0.18);
+    position: relative;
+    max-width: 400px;
+}
+#settings-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 2rem;
+    color: #23234a;
+    cursor: pointer;
+}
 #activity-frame {
     flex: 1;
     width: 100%;

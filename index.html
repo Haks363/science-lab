@@ -50,6 +50,23 @@
             <iframe id="activity-frame" src="" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+
+    <!-- Share Popup Modal -->
+    <div id="share-popup" class="modal" style="display:none;z-index:4000;">
+        <div class="modal-content" style="max-width:350px;text-align:center;">
+            <span class="close" id="close-share-popup" style="position:absolute;top:10px;right:18px;font-size:2rem;cursor:pointer;">&times;</span>
+            <h2>Enjoyed the game?</h2>
+            <p>Would you like to share this site?</p>
+            <input id="share-link" type="text" value="https://science-lab.example.com" readonly style="width:90%;padding:0.5rem;margin-bottom:0.7rem;border-radius:7px;border:1px solid #ccc;font-size:1rem;" />
+            <button id="copy-link-btn" style="background:#ffd700;color:#23234a;border:none;border-radius:6px;padding:0.3rem 1.1rem;font-size:1rem;cursor:pointer;font-weight:600;margin-bottom:0.7rem;">Copy Link</button>
+            <div style="display:flex;justify-content:center;gap:1.2rem;margin-bottom:1.1rem;">
+                <a id="share-instagram" href="#" target="_blank" title="Share to Instagram" style="font-size:2rem;">📸</a>
+                <a id="share-whatsapp" href="#" target="_blank" title="Share to WhatsApp" style="font-size:2rem;">🟢</a>
+                <a id="share-discord" href="#" target="_blank" title="Share to Discord" style="font-size:2rem;">💬</a>
+            </div>
+            <button id="close-share-btn" style="background:#ffd700;color:#23234a;border:none;border-radius:6px;padding:0.4rem 1.1rem;font-size:1rem;cursor:pointer;font-weight:600;">Close</button>
+        </div>
+    </div>
         <script src="activities.js"></script>
         <script src="main.js"></script>
         <footer id="third-party-note" style="position:fixed;bottom:36px;left:0;width:100%;background:rgba(34,34,59,0.97);color:#fff;text-align:center;padding:0.7rem 0;font-size:0.97rem;z-index:2000;letter-spacing:0.1px;display:flex;justify-content:center;align-items:center;gap:1.2rem;">

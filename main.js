@@ -126,19 +126,28 @@ function startApp() {
     desc.innerHTML = activity.description.replace(/\n/g, '<br>');
     modal.style.display = 'flex';
   }
-  document.getElementById('close-modal').onclick = function() {
+
+  function closeActivityModal() {
     document.getElementById('activity-modal').style.display = 'none';
     document.getElementById('activity-frame').src = '';
     let desc = document.getElementById('activity-description-modal');
     if (desc) desc.remove();
-  };
+    if (!sessionStorage.getItem('shareShown')) {
+      sessionStorage.setItem('shareShown', 'true');
+      setTimeout(showSharePopup, 400);
+    }
+  }
+
+  document.getElementById('close-modal').onclick = closeActivityModal;
+
   window.onclick = function(event) {
     const modal = document.getElementById('activity-modal');
+    const sharePopup = document.getElementById('share-popup');
     if (event.target === modal) {
-      modal.style.display = 'none';
-      document.getElementById('activity-frame').src = '';
-      let desc = document.getElementById('activity-description-modal');
-      if (desc) desc.remove();
+      closeActivityModal();
+    }
+    if (event.target === sharePopup) {
+      sharePopup.style.display = 'none';
     }
   };
 
@@ -156,6 +165,39 @@ function startApp() {
 
   // Initial render
   renderActivities(window.ACTIVITIES);
+}
+
+// --- Share Popup Logic ---
+function showSharePopup() {
+  const sharePopup = document.getElementById('share-popup');
+  if (!sharePopup) return;
+  sharePopup.style.display = 'block';
+  const shareLink = document.getElementById('share-link');
+  if (shareLink) {
+    shareLink.value = window.location.origin + window.location.pathname;
+  }
+  const url = encodeURIComponent(window.location.origin + window.location.pathname);
+  const text = encodeURIComponent('Check out Science Lab for fun and educational games!');
+  const ig = document.getElementById('share-instagram');
+  const wa = document.getElementById('share-whatsapp');
+  const dc = document.getElementById('share-discord');
+  if (ig) ig.href = `https://www.instagram.com/?url=${url}`;
+  if (wa) wa.href = `https://wa.me/?text=${text}%20${url}`;
+  if (dc) dc.href = `https://discord.com/channels/@me?text=${text}%20${url}`;
+  const copyBtn = document.getElementById('copy-link-btn');
+  if (copyBtn && shareLink) {
+    copyBtn.onclick = function() {
+      shareLink.select();
+      document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy Link'; }, 1200);
+    };
+  }
+  const closeBtn = document.getElementById('close-share-btn');
+  const closeX = document.getElementById('close-share-popup');
+  function closeShare() { sharePopup.style.display = 'none'; }
+  if (closeBtn) closeBtn.onclick = closeShare;
+  if (closeX) closeX.onclick = closeShare;
 }
 
 // Start the app when DOM is ready

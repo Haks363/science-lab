@@ -115,6 +115,14 @@ function startApp() {
     const modal = document.getElementById('activity-modal');
     const frame = document.getElementById('activity-frame');
     frame.src = activity.url;
+    // Analytics event: track game/activity open
+    if (typeof window.va === 'function') {
+      window.va('event', {
+        key: 'play_game',
+        activity_id: activity.id,
+        activity_title: activity.title
+      });
+    }
     // Add or update activity description below the iframe
     let desc = document.getElementById('activity-description-modal');
     if (!desc) {

@@ -123,6 +123,14 @@ function startApp() {
         activity_title: activity.title
       });
     }
+    // Google Analytics event (gtag.js)
+    if (typeof gtag === 'function') {
+      gtag('event', 'play_game', {
+        event_category: 'engagement',
+        event_label: activity.title,
+        value: 1
+      });
+    }
     // Add or update activity description below the iframe
     let desc = document.getElementById('activity-description-modal');
     if (!desc) {

@@ -80,10 +80,49 @@ document.addEventListener('DOMContentLoaded', function() {
 // Entry point for the app
 function startApp() {
   // Render activities
+  // --- Category Filter State ---
+  let selectedCategory = 'All';
+  // --- Render Category Filter Buttons ---
+  function renderCategoryFilters(activities) {
+    const searchBar = document.getElementById('search');
+    let filterBar = document.getElementById('category-filter-bar');
+    if (!filterBar) {
+      filterBar = document.createElement('div');
+      filterBar.id = 'category-filter-bar';
+      filterBar.style.display = 'flex';
+      filterBar.style.gap = '0.7rem';
+      filterBar.style.margin = '0.7rem 0 0.7rem 0';
+      searchBar.parentNode.insertBefore(filterBar, searchBar.nextSibling);
+    }
+    filterBar.innerHTML = '';
+    const categories = Array.from(new Set(activities.map(a => a.category)));
+    ['All', ...categories].forEach(category => {
+      const btn = document.createElement('button');
+      btn.textContent = category;
+      btn.style.padding = '0.3rem 1.1rem';
+      btn.style.borderRadius = '8px';
+      btn.style.border = 'none';
+      btn.style.background = selectedCategory === category ? '#ffd700' : '#e0c3fc';
+      btn.style.color = selectedCategory === category ? '#23234a' : '#7f53ac';
+      btn.style.fontWeight = '600';
+      btn.style.cursor = 'pointer';
+      btn.onclick = () => {
+        selectedCategory = category;
+        renderActivities(window.ACTIVITIES);
+      };
+      filterBar.appendChild(btn);
+    });
+  }
+
   function renderActivities(activities) {
+    renderCategoryFilters(activities);
     const container = document.getElementById('activities-container');
     container.innerHTML = '';
-    activities.forEach(activity => {
+    let filtered = activities;
+    if (selectedCategory !== 'All') {
+      filtered = activities.filter(a => a.category === selectedCategory);
+    }
+    filtered.forEach(activity => {
       const card = document.createElement('div');
       card.className = 'activity-card';
       let thumbHtml = '';

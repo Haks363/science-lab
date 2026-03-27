@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game | ScienceLab</title>
+    <meta name="description" content="Play unblocked games online at ScienceLab. Fast, hidden, and school‑friendly browser games.">
+    <!-- Open Graph & Twitter meta tags for sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Game | ScienceLab">
+    <meta property="og:description" content="Play unblocked games online at ScienceLab. Fast, hidden, and school‑friendly browser games.">
+    <meta property="og:image" content="assets/Logo.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Game | ScienceLab">
+    <meta name="twitter:description" content="Play unblocked games online at ScienceLab. Fast, hidden, and school‑friendly browser games.">
+    <meta name="twitter:image" content="assets/Logo.png">
+    <link rel="canonical" href="">
+    <!-- JSON-LD schema markup -->
+    <script id="jsonld-schema" type="application/ld+json"></script>
+    <link rel="icon" type="image/png" href="assets/Logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="activities.js"></script>
+    <script>
+      // Dynamically set meta tags and schema for SEO
+      document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        if (!id || !window.ACTIVITIES) return;
+        const game = window.ACTIVITIES.find(a => a.id === id);
+        if (!game) return;
+        // Title & meta description
+        document.title = `${game.title} – Play Unblocked | ScienceLab`;
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', `${game.title}: ${game.description.replace(/<[^>]+>/g, '').slice(0, 140)}`);
+        // Open Graph & Twitter
+        document.querySelector('meta[property="og:title"]').setAttribute('content', `${game.title} – Play Unblocked | ScienceLab`);
+        document.querySelector('meta[property="og:description"]').setAttribute('content', `${game.title}: ${game.description.replace(/<[^>]+>/g, '').slice(0, 140)}`);
+        document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+        document.querySelector('meta[name="twitter:title"]').setAttribute('content', `${game.title} – Play Unblocked | ScienceLab`);
+        document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${game.title}: ${game.description.replace(/<[^>]+>/g, '').slice(0, 140)}`);
+        document.querySelector('link[rel="canonical"]').setAttribute('href', window.location.href);
+        // JSON-LD schema
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          "name": game.title,
+          "description": game.description.replace(/<[^>]+>/g, ''),
+          "applicationCategory": game.category,
+          "url": window.location.href,
+          "image": window.location.origin + '/assets/Logo.png',
+          "author": { "@type": "Organization", "name": "ScienceLab" }
+        };
+        document.getElementById('jsonld-schema').textContent = JSON.stringify(schema);
+      });
+    </script>
+</head>
+<body>
+    <header style="display:flex;align-items:center;gap:1rem;justify-content:center;position:relative;width:100%;margin-bottom:1.5rem;">
+        <a href="index.html"><img src="assets/Logo.png" alt="Science Lab Logo" style="height:48px;width:48px;border-radius:12px;background:#fff;box-shadow:0 2px 8px #0001;object-fit:cover;" /></a>
+        <h1 id="game-title" style="margin:0;font-size:2rem;"></h1>
+    </header>
+    <main style="display:flex;flex-direction:column;align-items:center;">
+        <iframe id="game-frame" src="" frameborder="0" allowfullscreen loading="lazy" style="width:96vw;max-width:1100px;height:78vh;min-height:520px;border-radius:14px;background:#e0c3fc;box-shadow:0 2px 12px rgba(127,83,172,0.10);"></iframe>
+        <button id="fullscreen-btn" style="margin-top:1.1rem;background:#ffd700;color:#23234a;border:none;border-radius:8px;padding:0.5rem 1.5rem;font-size:1.15rem;cursor:pointer;font-weight:600;">⛶ Fullscreen</button>
+        <div id="game-description" style="margin-top:1.5rem;padding:1.2rem 1.2rem 1.2rem 1.2rem;color:#23234a;background:#f4f6fa;border-radius:10px;font-size:1.1rem;max-width:900px;width:90vw;"></div>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        if (!id || !window.ACTIVITIES) return;
+        const game = window.ACTIVITIES.find(a => a.id === id);
+        if (!game) {
+          document.getElementById('game-title').textContent = 'Game Not Found';
+          document.getElementById('game-frame').style.display = 'none';
+          document.getElementById('game-description').textContent = '';
+          return;
+        }
+        document.getElementById('game-title').textContent = game.title;
+        document.getElementById('game-frame').src = game.url;
+        // SEO-optimized long description for each game
+        let longDesc = '';
+        switch (game.id) {
+          case 'solar-smash':
+            longDesc = `<p><b>Solar Smash</b> is a wildly popular unblocked simulation game where you can destroy planets using a variety of creative weapons and tools. Experiment with lasers, asteroids, black holes, and more to see how much damage you can cause. This browser game is perfect for science fans and anyone who loves sandbox destruction games. <b>Play Solar Smash unblocked at school or anywhere!</b></p><ul><li>Destroy planets with realistic physics</li><li>Multiple weapons and effects</li><li>Great for stress relief and fun science experiments</li></ul><p><b>Controls:</b> Mouse or touch</p>`;
+            break;
+          case 'gun-spin':
+            longDesc = `<p><b>Gun Spin</b> is an addictive arcade game where you spin your gun and shoot to reach the goal. Master the timing and physics to progress through challenging levels. <b>Play Gun Spin unblocked for free in your browser!</b></p><ul><li>Unique spinning gun mechanic</li><li>Hundreds of levels to beat</li><li>Perfect for quick play sessions at school</li></ul><p><b>Controls:</b> Mouse or touch</p>`;
+            break;
+          case 'race-survival-arena-king':
+            longDesc = `<p><b>Race Survival Arena King</b> is a fast-paced racing and survival game. Compete against opponents, dodge obstacles, and try to survive the arena. <b>Enjoy Race Survival Arena King unblocked online!</b></p><ul><li>Intense racing action</li><li>Survival and elimination gameplay</li><li>Great for fans of car and racing games</li></ul><p><b>Controls:</b> Arrow keys or WASD</p>`;
+            break;
+          case 'idle-ants':
+            longDesc = `<p><b>Idle Ants</b> is a relaxing idle game where you grow your ant colony and collect food. Watch your ants work and expand your empire. <b>Play Idle Ants unblocked for free!</b></p><ul><li>Idle gameplay with upgrades</li><li>Build and manage your colony</li><li>Perfect for casual gaming at school</li></ul><p><b>Controls:</b> Mouse or touch</p>`;
+            break;
+          case 'pixel-path':
+            longDesc = `<p><b>Pixel Path</b> is a challenging puzzle platformer. Navigate tricky pixel-art levels, avoid traps, and reach the exit. <b>Play Pixel Path unblocked online!</b></p><ul><li>Retro pixel graphics</li><li>Challenging puzzles and traps</li><li>Great for fans of platform and puzzle games</li></ul><p><b>Controls:</b> Arrow keys/WASD to move, Space to jump, R to restart</p>`;
+            break;
+          case 'drift-king':
+            longDesc = `<p><b>Drift King</b> is a high-speed racing game focused on drifting. Race around corners, master your car, and become the drift king. <b>Play Drift King unblocked at school!</b></p><ul><li>Realistic drifting physics</li><li>Multiple tracks and cars</li><li>Perfect for racing fans</li></ul><p><b>Controls:</b> Arrow keys/WASD</p>`;
+            break;
+          case 'ragdoll-hit':
+            longDesc = `<p><b>Ragdoll Hit</b> is a hilarious action game using ragdoll physics. Fight your opponent and try to win each round. <b>Play Ragdoll Hit unblocked for free!</b></p><ul><li>Funny ragdoll physics</li><li>1v1 action gameplay</li><li>Great for quick, fun matches</li></ul><p><b>Controls:</b> Mouse or touch</p>`;
+            break;
+          case 'moto-x3m':
+            longDesc = `<p><b>Moto X3M</b> is a legendary bike stunt game. Race through wild tracks, perform stunts, and beat the clock. <b>Play Moto X3M unblocked in your browser!</b></p><ul><li>Exciting bike stunts</li><li>Challenging levels</li><li>Perfect for fans of racing and stunt games</li></ul><p><b>Controls:</b> Arrow keys</p>`;
+            break;
+          case 'minecraft':
+            longDesc = `<p><b>Minecraft Classic</b> lets you build and explore in the original Minecraft world. Enjoy creative sandbox gameplay right in your browser. <b>Play Minecraft Classic unblocked for free!</b></p><ul><li>Classic Minecraft experience</li><li>Creative building and exploration</li><li>Great for fans of sandbox games</li></ul><p><b>Controls:</b> Mouse and keyboard</p>`;
+            break;
+          case 'deadly-descent':
+            longDesc = `<p><b>Deadly Descent</b> is an arcade skiing game. Dodge obstacles, survive as long as you can, and go for a high score. <b>Play Deadly Descent unblocked online!</b></p><ul><li>Fast-paced skiing action</li><li>Endless gameplay</li><li>Perfect for arcade fans</li></ul><p><b>Controls:</b> Arrow keys/WASD</p>`;
+            break;
+          case 'highway-traffic':
+            longDesc = `<p><b>Highway Traffic</b> is a thrilling driving game. Dodge traffic, drive fast, and aim for the highest score. <b>Play Highway Traffic unblocked at school!</b></p><ul><li>Endless highway driving</li><li>Challenging traffic patterns</li><li>Great for car game fans</li></ul><p><b>Controls:</b> Arrow keys/WASD</p>`;
+            break;
+          case 'retro-bowl':
+            longDesc = `<p><b>Retro Bowl</b> is a classic football management game. Lead your team to victory, manage your roster, and win championships. <b>Play Retro Bowl unblocked for free!</b></p><ul><li>Retro football gameplay</li><li>Team management and strategy</li><li>Perfect for sports fans</li></ul><p><b>Controls:</b> Mouse and keyboard</p>`;
+            break;
+          case 'ragdoll-archers':
+            longDesc = `<p><b>Ragdoll Archers</b> is a fun archery action game with ragdoll physics. Battle opponents and master your aim. <b>Play Ragdoll Archers unblocked online!</b></p><ul><li>Archery battles</li><li>Funny ragdoll effects</li><li>Great for quick matches</li></ul><p><b>Controls:</b> Mouse or touch</p>`;
+            break;
+          case 'steal-brainrot-heist':
+            longDesc = `<p><b>Steal Brainrot Heist</b> is a Unity-powered heist game. Plan your moves, avoid guards, and steal the prize. <b>Play Steal Brainrot Heist unblocked!</b></p><ul><li>Heist and stealth gameplay</li><li>Unity WebGL graphics</li><li>Perfect for action fans</li></ul><p><b>Controls:</b> Mouse, keyboard</p>`;
+            break;
+          case 'real-flight-simulator':
+            longDesc = `<p><b>Real Flight Simulator</b> lets you fly realistic aircraft in your browser. Experience advanced flight physics and explore the skies. <b>Play Real Flight Simulator unblocked for free!</b></p><ul><li>Realistic flight simulation</li><li>Multiple aircraft</li><li>Great for aviation fans</li></ul><p><b>Controls:</b> Mouse, keyboard</p>`;
+            break;
+          default:
+            longDesc = `<p>${game.description}</p>`;
+        }
+        document.getElementById('game-description').innerHTML = longDesc;
+        // Fullscreen button logic
+        document.getElementById('fullscreen-btn').onclick = function() {
+          const frame = document.getElementById('game-frame');
+          if (frame.requestFullscreen) {
+            frame.requestFullscreen();
+          } else if (frame.webkitRequestFullscreen) {
+            frame.webkitRequestFullscreen();
+          } else if (frame.mozRequestFullScreen) {
+            frame.mozRequestFullScreen();
+          } else if (frame.msRequestFullscreen) {
+            frame.msRequestFullscreen();
+          }
+        };
+      });
+    </script>
+</body>
+</html>

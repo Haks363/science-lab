@@ -140,11 +140,13 @@ function startApp() {
       `;
       card.querySelector('.activity-play-btn').onclick = (e) => {
         e.stopPropagation();
-        openActivityModal(activity);
+        window.location.href = `game.html?id=${activity.id}`;
       };
       card.onmouseenter = () => card.classList.add('hovered');
       card.onmouseleave = () => card.classList.remove('hovered');
-      card.onclick = () => openActivityModal(activity);
+      card.onclick = () => {
+        window.location.href = `game.html?id=${activity.id}`;
+      };
       container.appendChild(card);
     });
   }

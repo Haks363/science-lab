@@ -39,7 +39,9 @@
         document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
         document.querySelector('meta[name="twitter:title"]').setAttribute('content', `${game.title} – Play Unblocked | ScienceLab`);
         document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${game.title}: ${game.description.replace(/<[^>]+>/g, '').slice(0, 140)}`);
-        document.querySelector('link[rel="canonical"]').setAttribute('href', window.location.href);
+        // Set canonical to SEO-friendly path (no query string)
+        const canonicalUrl = `https://sciencelab.app/${game.id}`;
+        document.querySelector('link[rel="canonical"]').setAttribute('href', canonicalUrl);
         // JSON-LD schema
         const schema = {
           "@context": "https://schema.org",

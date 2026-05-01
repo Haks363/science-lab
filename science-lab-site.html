@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Science Lab — Free Unblocked Games</title>
+<meta name="description" content="Play 20+ free unblocked games instantly. No downloads, no logins."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;--surface:#181c27;--card:#1e2333;--card-h:#252b3d;
+  --border:#2a3050;--accent:#4ade80;--accent2:#38bdf8;--accent3:#f472b6;
+  --text:#f1f5f9;--sub:#94a3b8;--muted:#475569;
+  --r:10px;--sans:'Nunito',sans-serif;--display:'Teko',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+.layout{display:flex;min-height:100vh;}
+
+/* SIDEBAR */
+.sidebar{width:215px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;z-index:50;}
+.sidebar-logo{padding:1.2rem 1rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;cursor:pointer;user-select:none;}
+.logo-icon{font-size:1.9rem;filter:drop-shadow(0 0 8px rgba(74,222,128,.4));}
+.logo-text{font-family:var(--display);font-size:1.55rem;letter-spacing:1px;color:var(--accent);line-height:1;}
+.logo-sub{font-size:.58rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.sb-sec{padding:.7rem 1rem .2rem;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:800;}
+.sb-link{display:flex;align-items:center;gap:.55rem;padding:.52rem 1rem;font-size:.83rem;font-weight:700;color:var(--sub);cursor:pointer;transition:all .14s;border-left:2px solid transparent;}
+.sb-link:hover{color:var(--text);background:rgba(255,255,255,.04);}
+.sb-link.on{color:var(--accent);background:rgba(74,222,128,.07);border-left-color:var(--accent);}
+.sb-link .ic{font-size:.95rem;width:18px;text-align:center;}
+.sb-foot{margin-top:auto;padding:1rem;border-top:1px solid var(--border);text-align:center;font-size:.68rem;color:var(--muted);font-family:var(--display);letter-spacing:1px;}
+.sb-foot strong{color:var(--accent);font-size:.95rem;}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+
+/* TOPBAR */
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:.65rem 1.25rem;display:flex;align-items:center;gap:.75rem;position:sticky;top:0;z-index:40;}
+.mob-btn{display:none;background:none;border:none;color:var(--text);font-size:1.35rem;cursor:pointer;padding:.2rem;}
+.sw{position:relative;flex:1;max-width:380px;}
+.si{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.9rem;}
+.search{width:100%;padding:.58rem 1rem .58rem 2.4rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--sans);font-size:.83rem;outline:none;transition:border-color .18s;}
+.search:focus{border-color:var(--accent);}
+.tags{display:flex;gap:.4rem;margin-left:auto;flex-wrap:nowrap;}
+.tag{font-size:.68rem;padding:.28rem .7rem;background:var(--card);border:1px solid var(--border);border-radius:20px;color:var(--sub);cursor:pointer;font-weight:700;transition:all .15s;white-space:nowrap;}
+.tag:hover,.tag.on{border-color:var(--accent2);color:var(--accent2);background:rgba(56,189,248,.07);}
+
+/* CONTENT */
+.content{padding:1.25rem 1.5rem;flex:1;}
+.sh{display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem;}
+.st{font-family:var(--display);font-size:1.35rem;letter-spacing:.5px;}
+.sb2{font-size:.62rem;padding:.18rem .55rem;background:rgba(74,222,128,.1);color:var(--accent);border-radius:4px;font-weight:800;letter-spacing:1px;}
+
+/* FEATURED */
+.feat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:1rem;margin-bottom:1.75rem;}
+
+/* CARDS */
+.gcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s;animation:fu .35s ease both;}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.gcard:hover{transform:translateY(-4px);border-color:var(--accent2);box-shadow:0 5px 22px rgba(56,189,248,.13);}
+.gt{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.gemoji{font-size:2.8rem;position:relative;z-index:1;transition:transform .2s;}
+.gcard:hover .gemoji{transform:scale(1.12);}
+.gi{padding:.6rem .7rem .7rem;}
+.gn{font-size:.8rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:.15rem;}
+.gc{font-size:.62rem;color:var(--muted);font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+.gplay{display:flex;align-items:center;justify-content:center;gap:.25rem;margin-top:.45rem;padding:.35rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.18);border-radius:5px;font-size:.68rem;color:var(--accent);font-weight:800;opacity:0;transform:translateY(3px);transition:opacity .15s,transform .15s;}
+.gcard:hover .gplay{opacity:1;transform:translateY(0);}
+
+/* ALL GRID */
+.all-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:.8rem;}
+
+/* FRAME */
+.frame-ov{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;flex-direction:column;}
+.frame-ov.open{display:flex;animation:fi .15s ease;}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.ftop{background:var(--surface);border-bottom:1px solid var(--border);padding:.55rem 1.2rem;display:flex;align-items:center;gap:.9rem;flex-shrink:0;}
+.fgi{display:flex;align-items:center;gap:.55rem;}
+.fge{font-size:1.35rem;}
+.fn{font-family:var(--display);font-size:1.2rem;letter-spacing:.5px;}
+.fc{font-size:.6rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.fbtns{display:flex;gap:.4rem;margin-left:auto;}
+.fb{padding:.38rem .85rem;border-radius:6px;font-size:.72rem;font-family:var(--sans);font-weight:700;cursor:pointer;border:1px solid;transition:all .14s;text-decoration:none;display:inline-flex;align-items:center;gap:.25rem;}
+.fb-o{border-color:var(--border);color:var(--sub);background:transparent;}
+.fb-o:hover{border-color:var(--accent2);color:var(--accent2);}
+.fb-x{border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.07);}
+.fb-x:hover{background:rgba(248,113,113,.15);}
+.fbody{flex:1;position:relative;}
+.fload{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;color:var(--sub);font-size:.83rem;font-weight:700;background:var(--bg);transition:opacity .3s;}
+.fload.gone{opacity:0;pointer-events:none;}
+.spin{width:30px;height:30px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:sp .7s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg)}}
+.fbody iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+
+/* EMPTY */
+.empty{text-align:center;padding:4rem 2rem;color:var(--muted);}
+.empty-ic{font-size:2.8rem;display:block;margin-bottom:.65rem;}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;}
+.ft{font-size:.7rem;color:var(--muted);}
+.flinks{display:flex;gap:.9rem;}
+.flinks a{font-size:.7rem;color:var(--muted);transition:color .14s;}
+.flinks a:hover{color:var(--text);}
+
+/* MOBILE */
+.sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:49;}
+@media(max-width:800px){
+  .sidebar{position:fixed;left:-215px;top:0;height:100%;transition:left .22s;z-index:50;}
+  .sidebar.open{left:0;}
+  .sb-ov.open{display:block;}
+  .mob-btn{display:block;}
+  .tags{display:none;}
+  .all-grid{grid-template-columns:repeat(auto-fill,minmax(118px,1fr));}
+  .feat-row{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));}
+  .content{padding:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- GAME FRAME -->
+<div class="frame-ov" id="fov">
+  <div class="ftop">
+    <div class="fgi">
+      <span class="fge" id="fE">🎮</span>
+      <div><div class="fn" id="fN">Game</div><div class="fc" id="fC">Category</div></div>
+    </div>
+    <div class="fbtns">
+      <a id="fLink" href="#" target="_blank" rel="noopener" class="fb fb-o">↗ Full Screen</a>
+      <button class="fb fb-x" onclick="closeFrame()">✕ Close</button>
+    </div>
+  </div>
+  <div class="fbody">
+    <div class="fload" id="fLoad"><div class="spin"></div><span>Loading game...</span></div>
+    <iframe id="gIframe" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-orientation-lock"></iframe>
+  </div>
+</div>
+
+<div class="sb-ov" id="sbOv" onclick="closeSb()"></div>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sb">
+    <div class="sidebar-logo" onclick="goHome()">
+      <span class="logo-icon">⚗️</span>
+      <div><div class="logo-text">SCIENCE LAB</div><div class="logo-sub">Unblocked Games</div></div>
+    </div>
+    <div class="sb-sec">Browse</div>
+    <div class="sb-link on" data-f="" onclick="setFilter(this,'')"><span class="ic">🏠</span>Home</div>
+    <div class="sb-link" data-f="New" onclick="setFilter(this,'New')"><span class="ic">✨</span>New & Hot</div>
+    <div class="sb-link" data-f="Popular" onclick="setFilter(this,'Popular')"><span class="ic">🔥</span>Popular</div>
+    <div class="sb-sec">Categories</div>
+    <div class="sb-link" data-f="Action" onclick="setFilter(this,'Action')"><span class="ic">⚔️</span>Action</div>
+    <div class="sb-link" data-f="Arcade" onclick="setFilter(this,'Arcade')"><span class="ic">🕹️</span>Arcade</div>
+    <div class="sb-link" data-f="Driving" onclick="setFilter(this,'Driving')"><span class="ic">🚗</span>Driving</div>
+    <div class="sb-link" data-f="Horror" onclick="setFilter(this,'Horror')"><span class="ic">👻</span>Horror</div>
+    <div class="sb-link" data-f="Idle" onclick="setFilter(this,'Idle')"><span class="ic">💰</span>Idle / Clicker</div>
+    <div class="sb-link" data-f="Multiplayer" onclick="setFilter(this,'Multiplayer')"><span class="ic">👥</span>Multiplayer</div>
+    <div class="sb-link" data-f="Platformer" onclick="setFilter(this,'Platformer')"><span class="ic">🏃</span>Platformer</div>
+    <div class="sb-link" data-f="Puzzle" onclick="setFilter(this,'Puzzle')"><span class="ic">🧩</span>Puzzle</div>
+    <div class="sb-link" data-f="Sports" onclick="setFilter(this,'Sports')"><span class="ic">⚽</span>Sports</div>
+    <div class="sb-link" data-f="Strategy" onclick="setFilter(this,'Strategy')"><span class="ic">🧠</span>Strategy</div>
+    <div class="sb-foot"><strong id="cnt">20</strong> Games Available</div>
+  </nav>
+
+  <div class="main">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="mob-btn" onclick="openSb()">☰</button>
+      <div class="sw">
+        <span class="si">🔍</span>
+        <input class="search" type="text" placeholder="Search games..." id="srch" oninput="onSearch(this.value)" autocomplete="off"/>
+      </div>
+      <div class="tags">
+        <div class="tag on" onclick="tagClick(this,'')">All</div>
+        <div class="tag" onclick="tagClick(this,'Action')">Action</div>
+        <div class="tag" onclick="tagClick(this,'Arcade')">Arcade</div>
+        <div class="tag" onclick="tagClick(this,'Driving')">Driving</div>
+        <div class="tag" onclick="tagClick(this,'Puzzle')">Puzzle</div>
+        <div class="tag" onclick="tagClick(this,'Sports')">Sports</div>
+        <div class="tag" onclick="tagClick(this,'Multiplayer')">Multiplayer</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Featured section -->
+      <div id="featSec">
+        <div class="sh"><h2 class="st">🔥 Featured</h2><span class="sb2">POPULAR</span></div>
+        <div class="feat-row" id="featGrid"></div>
+      </div>
+      <!-- All games -->
+      <div id="allSec">
+        <div class="sh" style="margin-top:.25rem"><h2 class="st" id="secTitle">All Games</h2><span class="sb2" id="secBadge">20 GAMES</span></div>
+        <div class="all-grid" id="allGrid"></div>
+      </div>
+      <div class="empty" id="emptyEl" style="display:none">
+        <span class="empty-ic">🔭</span>
+        <p id="emptyMsg">No games found.</p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="ft">© 2026 Science Lab · Free Unblocked Games · science-lab.app</div>
+      <div class="flinks"><a href="#">About</a><a href="#">Privacy</a><a href="#">Contact</a></div>
+    </footer>
+  </div>
+</div>
+
+<script>
+const GAMES=[
+  {id:"slope",name:"Slope",cat:"Arcade",e:"🟢",feat:true,tags:["Popular","New"],url:"https://slope-game.github.io/",bg:"#22c55e"},
+  {id:"run3",name:"Run 3",cat:"Platformer",e:"🏃",feat:true,tags:["Popular"],url:"https://run3.io/",bg:"#3b82f6"},
+  {id:"cookie-clicker",name:"Cookie Clicker",cat:"Idle",e:"🍪",feat:true,tags:["Popular","New"],url:"https://orteil.dashnet.org/cookieclicker/",bg:"#f59e0b"},
+  {id:"1v1lol",name:"1v1.LOL",cat:"Action",e:"🔫",feat:true,tags:["Popular","New"],url:"https://1v1.lol/",bg:"#8b5cf6"},
+  {id:"moto-x3m",name:"Moto X3M",cat:"Driving",e:"🏍️",feat:true,tags:["Popular","New"],url:"https://www.crazygames.com/game/moto-x3m",bg:"#f43f5e"},
+  {id:"smash-karts",name:"Smash Karts",cat:"Multiplayer",e:"🎮",feat:true,tags:["Popular","New"],url:"https://smashkarts.io/",bg:"#f59e0b"},
+  {id:"2048",name:"2048",cat:"Puzzle",e:"🔢",feat:false,tags:["Popular"],url:"https://play2048.co/",bg:"#f97316"},
+  {id:"chess",name:"Chess",cat:"Strategy",e:"♟️",feat:false,tags:["Popular"],url:"https://www.chess.com/play/computer",bg:"#6366f1"},
+  {id:"pacman",name:"Pac-Man",cat:"Arcade",e:"👾",feat:false,tags:["Popular"],url:"https://freepacman.org/",bg:"#eab308"},
+  {id:"tetris",name:"Tetris",cat:"Puzzle",e:"🧱",feat:false,tags:["Popular"],url:"https://tetris.com/play-tetris",bg:"#06b6d4"},
+  {id:"flappy-bird",name:"Flappy Bird",cat:"Arcade",e:"🐦",feat:false,tags:["Popular"],url:"https://flappybird.io/",bg:"#84cc16"},
+  {id:"drift-hunters",name:"Drift Hunters",cat:"Driving",e:"🚗",feat:false,tags:["Popular"],url:"https://drifthunters.io/",bg:"#ef4444"},
+  {id:"fnf",name:"Friday Night Funkin",cat:"Arcade",e:"🎵",feat:false,tags:["Popular"],url:"https://www.friday-night-funkin.io/",bg:"#a855f7"},
+  {id:"happy-wheels",name:"Happy Wheels",cat:"Action",e:"🪑",feat:false,tags:["Popular"],url:"https://www.totaljerkface.com/happy_wheels.tjf",bg:"#ef4444"},
+  {id:"retro-bowl",name:"Retro Bowl",cat:"Sports",e:"🏈",feat:false,tags:["Popular","New"],url:"https://retrobowl.me/",bg:"#22c55e"},
+  {id:"basketball-legends",name:"Basketball Legends",cat:"Sports",e:"🏀",feat:false,tags:["Popular"],url:"https://www.basketballlegends.io/",bg:"#f97316"},
+  {id:"geometry-dash",name:"Geometry Dash",cat:"Platformer",e:"📐",feat:false,tags:["Popular"],url:"https://geometry-dash-lite.github.io/",bg:"#6366f1"},
+  {id:"among-us",name:"Among Us",cat:"Multiplayer",e:"🚀",feat:false,tags:["Popular"],url:"https://www.crazygames.com/game/among-us",bg:"#c026d3"},
+  {id:"fnaf",name:"Five Nights at Freddy's",cat:"Horror",e:"🐻",feat:false,tags:["Popular"],url:"https://www.crazygames.com/game/five-nights-at-freddys",bg:"#7c3aed"},
+  {id:"papas-freezeria",name:"Papa's Freezeria",cat:"Arcade",e:"🍦",feat:false,tags:["Popular"],url:"https://www.coolmathgames.com/0-papas-freezeria",bg:"#ec4899"},
+];
+
+let filt='', qry='';
+
+function vis(){
+  let g=GAMES;
+  if(filt&&filt!=='Popular'&&filt!=='New') g=g.filter(x=>x.cat===filt);
+  else if(filt==='Popular'||filt==='New') g=g.filter(x=>x.tags.includes(filt));
+  if(qry){const q=qry.toLowerCase();g=g.filter(x=>x.name.toLowerCase().includes(q)||x.cat.toLowerCase().includes(q));}
+  return g;
+}
+
+function card(g,i,big){
+  const sz=big?'3rem':'2.5rem';
+  return`<div class="gcard" style="animation-delay:${i*.04}s" onclick="open_('${g.id}')">
+    <div class="gt" style="background:linear-gradient(135deg,${g.bg}20,${g.bg}06)">
+      <span class="gemoji" style="font-size:${sz}">${g.e}</span>
+    </div>
+    <div class="gi">
+      <div class="gn">${g.name}</div>
+      <div class="gc">${g.cat}</div>
+      <div class="gplay">▶ Play Now</div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const g=vis();
+  const isHome=!filt&&!qry;
+  const feat=g.filter(x=>x.feat);
+  document.getElementById('cnt').textContent=GAMES.length;
+
+  // featured
+  const fs=document.getElementById('featSec');
+  const fg=document.getElementById('featGrid');
+  if(isHome&&feat.length){fs.style.display='';fg.innerHTML=feat.map((x,i)=>card(x,i,true)).join('');}
+  else{fs.style.display='none';}
+
+  // all
+  const list=isHome?g.filter(x=>!x.feat):g;
+  const ag=document.getElementById('allGrid');
+  const em=document.getElementById('emptyEl');
+  if(!g.length){ag.innerHTML='';em.style.display='block';document.getElementById('emptyMsg').textContent=`No games found for "${qry}"`;document.getElementById('allSec').style.display='none';}
+  else{em.style.display='none';document.getElementById('allSec').style.display='';ag.innerHTML=list.map((x,i)=>card(x,i,false)).join('');document.getElementById('secBadge').textContent=g.length+' GAMES';document.getElementById('secTitle').textContent=filt||qry?'Results':'All Games';}
+}
+
+function open_(id){
+  const g=GAMES.find(x=>x.id===id);if(!g)return;
+  document.getElementById('fE').textContent=g.e;
+  document.getElementById('fN').textContent=g.name;
+  document.getElementById('fC').textContent=g.cat;
+  document.getElementById('fLink').href=g.url;
+  const ifr=document.getElementById('gIframe');
+  const ld=document.getElementById('fLoad');
+  ld.classList.remove('gone');ifr.src='';
+  setTimeout(()=>{ifr.src=g.url;},60);
+  ifr.onload=()=>ld.classList.add('gone');
+  document.getElementById('fov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeFrame(){
+  document.getElementById('fov').classList.remove('open');
+  document.getElementById('gIframe').src='';
+  document.body.style.overflow='';
+}
+
+function setFilter(el,f){
+  filt=f;qry='';document.getElementById('srch').value='';
+  document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.tag').forEach(t=>t.classList.remove('on'));
+  if(!f)document.querySelector('.tag').classList.add('on');
+  render();closeSb();
+}
+function tagClick(el,f){
+  filt=f;qry='';document.getElementById('srch').value='';
+  document.querySelectorAll('.tag').forEach(t=>t.classList.remove('on'));el.classList.add('on');
+  document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('on'));
+  if(!f)document.querySelector('.sb-link[data-f=""]').classList.add('on');
+  render();
+}
+function onSearch(v){qry=v.toLowerCase();if(v){document.querySelectorAll('.sb-link,.tag').forEach(x=>x.classList.remove('on'));filt='';}render();}
+function goHome(){filt='';qry='';document.getElementById('srch').value='';document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('on'));document.querySelector('.sb-link[data-f=""]').classList.add('on');document.querySelectorAll('.tag').forEach(t=>t.classList.remove('on'));document.querySelector('.tag').classList.add('on');render();closeSb();}
+function openSb(){document.getElementById('sb').classList.add('open');document.getElementById('sbOv').classList.add('open');}
+function closeSb(){document.getElementById('sb').classList.remove('open');document.getElementById('sbOv').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeFrame();});
+
+render();
+</script>
+</body>
+</html>

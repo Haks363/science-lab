@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Do not block games, assets, or iframes
+# Sitemap location
+Sitemap: https://sciencelab.app/sitemap.xml
